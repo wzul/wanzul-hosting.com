@@ -269,6 +269,125 @@
       border-color: var(--accent);
       font-weight: 500;
     }
+
+    .clients-section {
+      margin-top: 3rem;
+    }
+
+    .clients-section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .client-card {
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .client-card:hover {
+      border-color: var(--border);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .client-card a.card-link {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .client-preview {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .client-preview img.preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .client-preview .preview-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .client-card .card-body {
+      padding: 1rem 1.1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .client-card .domain-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .client-card .favicon {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .client-card .domain {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+      word-break: break-all;
+    }
+
+    .client-card .badge {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      padding: 0.2rem 0.45rem;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .client-card .visit {
+      font-size: 0.8125rem;
+      color: var(--accent);
+      margin-top: 0.25rem;
+    }
+
+    .client-card a.card-link:hover .visit {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -305,6 +424,97 @@
         <h2><span class="icon">4</span> Email newsletter (Listmonk)</h2>
         <p>Full setup and configuration of Listmonk for your email newsletters: installation, list management, templates, and delivery.</p>
       </article>
+    </section>
+
+    <section class="clients-section" aria-labelledby="clients-heading">
+      <h2 id="clients-heading">Clients</h2>
+      <div class="client-grid">
+        <article class="client-card">
+          <a class="card-link" href="https://dentaluna.my" target="_blank" rel="noopener noreferrer">
+            <div class="client-preview" style="background: linear-gradient(135deg, hsl(198, 45%, 45%), hsl(198, 55%, 35%));">
+              <span class="preview-placeholder">d</span>
+            </div>
+            <div class="card-body">
+              <div class="domain-row">
+                <img class="favicon" src="https://www.google.com/s2/favicons?domain=dentaluna.my&sz=32" alt="" width="20" height="20">
+                <span class="domain">dentaluna.my</span>
+              </div>
+              <span class="visit">Visit site →</span>
+            </div>
+          </a>
+        </article>
+        <article class="client-card">
+          <a class="card-link" href="https://safamedichululangat.com" target="_blank" rel="noopener noreferrer">
+            <div class="client-preview" style="background: linear-gradient(135deg, hsl(265, 40%, 45%), hsl(265, 50%, 35%));">
+              <span class="preview-placeholder">s</span>
+            </div>
+            <div class="card-body">
+              <div class="domain-row">
+                <img class="favicon" src="https://www.google.com/s2/favicons?domain=safamedichululangat.com&sz=32" alt="" width="20" height="20">
+                <span class="domain">safamedichululangat.com</span>
+              </div>
+              <span class="visit">Visit site →</span>
+            </div>
+          </a>
+        </article>
+        <article class="client-card">
+          <a class="card-link" href="https://takaful.abrar.my" target="_blank" rel="noopener noreferrer">
+            <div class="client-preview" style="background: linear-gradient(135deg, hsl(318, 42%, 45%), hsl(318, 52%, 35%));">
+              <span class="preview-placeholder">t</span>
+            </div>
+            <div class="card-body">
+              <div class="domain-row">
+                <img class="favicon" src="https://www.google.com/s2/favicons?domain=takaful.abrar.my&sz=32" alt="" width="20" height="20">
+                <span class="domain">takaful.abrar.my</span>
+              </div>
+              <span class="visit">Visit site →</span>
+            </div>
+          </a>
+        </article>
+        <article class="client-card">
+          <a class="card-link" href="https://construction.org.my" target="_blank" rel="noopener noreferrer">
+            <div class="client-preview" style="background: linear-gradient(135deg, hsl(38, 48%, 45%), hsl(38, 58%, 35%));">
+              <span class="preview-placeholder">c</span>
+            </div>
+            <div class="card-body">
+              <div class="domain-row">
+                <img class="favicon" src="https://www.google.com/s2/favicons?domain=construction.org.my&sz=32" alt="" width="20" height="20">
+                <span class="domain">construction.org.my</span>
+              </div>
+              <span class="visit">Visit site →</span>
+            </div>
+          </a>
+        </article>
+        <article class="client-card">
+          <a class="card-link" href="https://smai.islahbiz.com" target="_blank" rel="noopener noreferrer">
+            <div class="client-preview" style="background: linear-gradient(135deg, hsl(162, 42%, 42%), hsl(162, 52%, 32%));">
+              <span class="preview-placeholder">s</span>
+            </div>
+            <div class="card-body">
+              <div class="domain-row">
+                <img class="favicon" src="https://www.google.com/s2/favicons?domain=smai.islahbiz.com&sz=32" alt="" width="20" height="20">
+                <span class="domain">smai.islahbiz.com</span>
+              </div>
+              <span class="visit">Visit site →</span>
+            </div>
+          </a>
+        </article>
+        <article class="client-card">
+          <a class="card-link" href="https://jomform.com" target="_blank" rel="noopener noreferrer">
+            <div class="client-preview" style="background: linear-gradient(135deg, hsl(278, 45%, 45%), hsl(278, 55%, 35%));">
+              <span class="preview-placeholder">j</span>
+            </div>
+            <div class="card-body">
+              <div class="domain-row">
+                <img class="favicon" src="https://www.google.com/s2/favicons?domain=jomform.com&sz=32" alt="" width="20" height="20">
+                <span class="domain">jomform.com</span>
+                <span class="badge">In development</span>
+              </div>
+              <span class="visit">Visit site →</span>
+            </div>
+          </a>
+        </article>
+      </div>
     </section>
 
     <section class="company-block">
