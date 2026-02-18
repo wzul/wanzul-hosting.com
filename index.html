@@ -131,13 +131,24 @@
       object-fit: contain;
     }
 
-    .company-block {
-      margin-top: 3rem;
-      padding: 2rem;
-      border-top: 1px solid var(--border);
+    .footer-region {
+      margin-top: 3.5rem;
+      padding: 2.5rem 2rem 2rem;
       background: var(--surface);
+      border: 1px solid var(--border-soft);
       border-radius: 16px;
       box-shadow: var(--shadow);
+    }
+
+    .company-block {
+      padding-bottom: 1.5rem;
+    }
+
+    .footer-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 0 1.5rem;
+      border: none;
     }
 
     .legal-name {
@@ -236,11 +247,11 @@
     }
 
     .site-footer {
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
+      margin: 0;
+      padding: 0;
       font-size: 0.8125rem;
       color: var(--text-muted);
+      text-align: center;
     }
 
     .site-footer a {
@@ -625,15 +636,17 @@
       </div>
     </section>
 
-    <section class="company-block">
-      <div class="legal-name">WANZUL HOSTING ENTERPRISE (<span class="ssm">201403298654 (PC0012291-H)</span>)</div>
-      <div class="address">B-05-15 PANGSAPURI EMBUN BAYU, PERSIARAN KOSMOS, SEKSYEN U5, 40150, SHAH ALAM, SELANGOR DARUL EHSAN</div>
-      <div class="office-line">Office line: <a href="tel:+60145356443">(+60)14 535 6443</a> · <a href="mailto:admin@wanzul-hosting.com">admin@wanzul-hosting.com</a></div>
-    </section>
-
-    <footer class="site-footer">
-      <a href="terms-of-service.html">Terms of Service</a> · <a href="privacy-policy.html">Privacy Policy</a> · <a href="refund-policy.html">Refund Policy</a> · © 2026 Wanzul Hosting Enterprise
-    </footer>
+    <div class="footer-region">
+      <section class="company-block">
+        <div class="legal-name">WANZUL HOSTING ENTERPRISE (<span class="ssm">201403298654 (PC0012291-H)</span>)</div>
+        <div class="address">B-05-15 PANGSAPURI EMBUN BAYU, PERSIARAN KOSMOS, SEKSYEN U5, 40150, SHAH ALAM, SELANGOR DARUL EHSAN</div>
+        <div class="office-line">Office line: <a href="tel:+60145356443">(+60)14 535 6443</a> · <a href="mailto:admin@wanzul-hosting.com">admin@wanzul-hosting.com</a></div>
+      </section>
+      <hr class="footer-divider" aria-hidden="true">
+      <footer class="site-footer">
+        <a href="terms-of-service.html">Terms of Service</a> · <a href="privacy-policy.html">Privacy Policy</a> · <a href="refund-policy.html">Refund Policy</a> · © 2026 Wanzul Hosting Enterprise
+      </footer>
+    </div>
   </div>
   <script>
     (function() {
