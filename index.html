@@ -233,6 +233,68 @@
       color: var(--accent);
     }
 
+    .tech-stack {
+      margin-top: 3rem;
+    }
+
+    .tech-stack h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .tech-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.85rem;
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 10px;
+      font-size: 0.875rem;
+      color: var(--text);
+      box-shadow: var(--shadow);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .tech-item:hover {
+      border-color: var(--border);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .tech-item img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .tech-item .tech-text {
+      font-weight: 500;
+    }
+
+    .tech-item .tech-initial {
+      width: 22px;
+      height: 22px;
+      border-radius: 5px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
     .theme-switcher {
       display: flex;
       align-items: center;
@@ -407,7 +469,7 @@
     <section class="services">
       <article class="service">
         <h2><span class="icon">1</span> Consultancy</h2>
-        <p>Expert advice on web development, deployment workflows, and server tuning. Architecture, performance, and operations guidance.</p>
+        <p>Expert advice on web development, deployment workflows, and server tuning. Architecture, performance, and operations guidance. Experience in WordPress, Laravel and Ruby on Rails.</p>
       </article>
 
       <article class="service">
@@ -416,7 +478,7 @@
       </article>
 
       <article class="service">
-        <h2><span class="icon">3</span> WordPress deployment with high availability</h2>
+        <h2><span class="icon">3</span> WordPress deployment with High Availability (HA)</h2>
         <p>WordPress hosting and deployment designed for uptime and scale: redundant setups, staging, backups, and monitoring.</p>
       </article>
 
@@ -424,6 +486,28 @@
         <h2><span class="icon">4</span> Email newsletter</h2>
         <p>Full setup and configuration for your email newsletters: installation, list management, templates, and delivery.</p>
       </article>
+    </section>
+
+    <section class="tech-stack" aria-labelledby="tech-heading">
+      <h2 id="tech-heading">Technology stack</h2>
+      <div class="tech-grid">
+        <span class="tech-item"><img src="images/tech/wordpress.svg" alt="" width="22" height="22"><span class="tech-text">WordPress</span></span>
+        <span class="tech-item"><img src="images/tech/laravel.svg" alt="" width="22" height="22"><span class="tech-text">Laravel</span></span>
+        <span class="tech-item"><img src="images/tech/rubyonrails.svg" alt="" width="22" height="22"><span class="tech-text">Ruby on Rails</span></span>
+        <span class="tech-item"><img src="images/tech/amazonaws.svg" alt="" width="22" height="22"><span class="tech-text">AWS EC2</span></span>
+        <span class="tech-item"><img src="images/tech/amazonaws.svg" alt="" width="22" height="22"><span class="tech-text">AWS RDS</span></span>
+        <span class="tech-item"><img src="images/tech/amazonaws.svg" alt="" width="22" height="22"><span class="tech-text">AWS Elastic Beanstalk</span></span>
+        <span class="tech-item"><img src="images/tech/heroku.svg" alt="" width="22" height="22"><span class="tech-text">Heroku</span></span>
+        <span class="tech-item"><span class="tech-initial">C</span><span class="tech-text">Coolify</span></span>
+        <span class="tech-item"><img src="images/tech/docker.svg" alt="" width="22" height="22"><span class="tech-text">Docker</span></span>
+        <span class="tech-item"><img src="images/tech/postgresql.svg" alt="" width="22" height="22"><span class="tech-text">PostgreSQL</span></span>
+        <span class="tech-item"><span class="tech-initial">P</span><span class="tech-text">PgBouncer</span></span>
+        <span class="tech-item"><img src="images/tech/mariadb.svg" alt="" width="22" height="22"><span class="tech-text">MariaDB</span></span>
+        <span class="tech-item"><span class="tech-initial">P</span><span class="tech-text">ProxySQL</span></span>
+        <span class="tech-item"><span class="tech-initial">C</span><span class="tech-text">ClickHouse</span></span>
+        <span class="tech-item"><span class="tech-initial">O</span><span class="tech-text">OpenCart</span></span>
+        <span class="tech-item"><img src="images/tech/woocommerce.svg" alt="" width="22" height="22"><span class="tech-text">WooCommerce</span></span>
+      </div>
     </section>
 
     <section class="clients-section" aria-labelledby="clients-heading">
