@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wanzul Hosting Enterprise — WordPress, Web & Email Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1620;
+      --surface: #161f2b;
+      --border: #2d3a4a;
+      --text: #e8eef4;
+      --text-muted: #8b99a8;
+      --accent: #58a6ff;
+      --accent-soft: rgba(88, 166, 255, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .page-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .company-block {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .legal-name {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 0.75rem;
+    }
+
+    .legal-name .ssm {
+      color: var(--text);
+    }
+
+    .address {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+
+    .office-line {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+    }
+
+    .office-line a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .office-line a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .services {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .service {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .service:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent-soft);
+    }
+
+    .service h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .service .icon {
+      width: 24px;
+      height: 24px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .service p {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .site-footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .site-footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <div class="logo">Wanzul Hosting Enterprise</div>
+    </header>
+
+    <h1>Services</h1>
+
+    <section class="services">
+      <article class="service">
+        <h2><span class="icon">1</span> WordPress plugin development</h2>
+        <p>Custom WordPress plugins built to your requirements: features, integrations, and maintenance. From small utilities to full product plugins.</p>
+      </article>
+
+      <article class="service">
+        <h2><span class="icon">2</span> Consultancy</h2>
+        <p>Expert advice on web development, deployment workflows, and server tuning. Architecture, performance, and operations guidance.</p>
+      </article>
+
+      <article class="service">
+        <h2><span class="icon">3</span> WordPress deployment with high availability</h2>
+        <p>WordPress hosting and deployment designed for uptime and scale: redundant setups, staging, backups, and monitoring.</p>
+      </article>
+
+      <article class="service">
+        <h2><span class="icon">4</span> Email newsletter (Listmonk)</h2>
+        <p>Full setup and configuration of Listmonk for your email newsletters: installation, list management, templates, and delivery.</p>
+      </article>
+    </section>
+
+    <section class="company-block">
+      <div class="legal-name">WANZUL HOSTING ENTERPRISE (<span class="ssm">201403298654 (PC0012291-H)</span>)</div>
+      <div class="address">B-05-15 PANGSAPURI EMBUN BAYU, PERSIARAN KOSMOS, SEKSYEN U5, 40150, SHAH ALAM, SELANGOR DARUL EHSAN</div>
+      <div class="office-line">Office line: <a href="tel:+60145356443">(+60)14 535 6443</a> · <a href="mailto:admin@wanzul-hosting.com">admin@wanzul-hosting.com</a></div>
+    </section>
+
+    <footer class="site-footer">
+      <a href="#">Terms of Service</a> · <a href="#">Privacy Policy</a> · © 2026 Wanzul Hosting Enterprise
+    </footer>
+  </div>
+</body>
+</html>
