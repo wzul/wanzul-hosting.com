@@ -8,14 +8,70 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    /* Light theme (default) */
     :root {
+      --bg: #f8fafc;
+      --bg-warm: #faf9f7;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --border-soft: #f1f5f9;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0ea5e9;
+      --accent-hover: #0284c7;
+      --accent-soft: rgba(14, 165, 233, 0.1);
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Dark theme */
+    [data-theme="dark"] {
       --bg: #0f1620;
+      --bg-warm: #0d1117;
       --surface: #161f2b;
       --border: #2d3a4a;
+      --border-soft: #21262d;
       --text: #e8eef4;
       --text-muted: #8b99a8;
       --accent: #58a6ff;
-      --accent-soft: rgba(88, 166, 255, 0.12);
+      --accent-hover: #79b8ff;
+      --accent-soft: rgba(88, 166, 255, 0.15);
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Force light when user chose light (overrides system dark) */
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --bg-warm: #faf9f7;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --border-soft: #f1f5f9;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0ea5e9;
+      --accent-hover: #0284c7;
+      --accent-soft: rgba(14, 165, 233, 0.1);
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    /* System preference: dark when OS is dark (unless user chose light) */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0f1620;
+        --bg-warm: #0d1117;
+        --surface: #161f2b;
+        --border: #2d3a4a;
+        --border-soft: #21262d;
+        --text: #e8eef4;
+        --text-muted: #8b99a8;
+        --accent: #58a6ff;
+        --accent-hover: #79b8ff;
+        --accent-soft: rgba(88, 166, 255, 0.15);
+        --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.4);
+      }
     }
 
     * {
@@ -25,43 +81,52 @@
     }
 
     body {
-      font-family: 'DM Sans', -apple-system, sans-serif;
-      background: var(--bg);
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(180deg, var(--bg-warm) 0%, var(--bg) 100%);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
       min-height: 100vh;
     }
 
     .container {
-      max-width: 720px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
+      padding: 2.5rem 1.5rem 4rem;
     }
 
     .page-header {
-      margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.75rem;
       border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.625rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
     }
 
     .company-block {
       margin-top: 3rem;
-      padding-top: 2rem;
+      padding: 2rem;
       border-top: 1px solid var(--border);
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
+      background: var(--surface);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
     }
 
     .legal-name {
-      font-size: 0.875rem;
+      font-size: 0.8125rem;
       color: var(--text-muted);
       font-family: 'JetBrains Mono', monospace;
       margin-bottom: 0.75rem;
+      letter-spacing: 0.01em;
     }
 
     .legal-name .ssm {
@@ -83,69 +148,76 @@
     .office-line a {
       color: var(--accent);
       text-decoration: none;
+      font-weight: 500;
     }
 
     .office-line a:hover {
+      color: var(--accent-hover);
       text-decoration: underline;
     }
 
     h1 {
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 2rem;
       letter-spacing: -0.02em;
+      color: var(--text);
     }
 
     .services {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: 1rem;
     }
 
     .service {
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
       padding: 1.5rem 1.75rem;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: var(--shadow);
     }
 
     .service:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px var(--accent-soft);
+      border-color: var(--border);
+      box-shadow: var(--shadow-hover);
     }
 
     .service h2 {
-      font-size: 1.1rem;
+      font-size: 1.0625rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.625rem;
+      color: var(--text);
     }
 
     .service .icon {
-      width: 24px;
-      height: 24px;
+      width: 28px;
+      height: 28px;
       background: var(--accent-soft);
       color: var(--accent);
-      border-radius: 6px;
+      border-radius: 8px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       font-size: 0.75rem;
       font-weight: 700;
       font-family: 'JetBrains Mono', monospace;
+      flex-shrink: 0;
     }
 
     .service p {
       font-size: 0.9375rem;
       color: var(--text-muted);
       margin: 0;
+      line-height: 1.6;
     }
 
     .site-footer {
-      margin-top: 3rem;
+      margin-top: 2rem;
       padding-top: 1.5rem;
       border-top: 1px solid var(--border);
       font-size: 0.8125rem;
@@ -160,25 +232,68 @@
     .site-footer a:hover {
       color: var(--accent);
     }
+
+    .theme-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-left: auto;
+    }
+
+    .theme-switcher span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-right: 0.5rem;
+    }
+
+    .theme-switcher button {
+      font-family: inherit;
+      font-size: 0.8125rem;
+      padding: 0.35rem 0.65rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+    }
+
+    .theme-switcher button:hover {
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .theme-switcher button[aria-pressed="true"] {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-color: var(--accent);
+      font-weight: 500;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header class="page-header">
       <div class="logo">Wanzul Hosting Enterprise</div>
+      <div class="theme-switcher" role="group" aria-label="Theme">
+        <span>Theme</span>
+        <button type="button" data-theme="light" aria-pressed="false" title="Light" aria-label="Light">☀</button>
+        <button type="button" data-theme="system" aria-pressed="false" title="System" aria-label="System">◐</button>
+        <button type="button" data-theme="dark" aria-pressed="false" title="Dark" aria-label="Dark">☽</button>
+      </div>
     </header>
 
     <h1>Services</h1>
 
     <section class="services">
       <article class="service">
-        <h2><span class="icon">1</span> WordPress plugin development</h2>
-        <p>Custom WordPress plugins built to your requirements: features, integrations, and maintenance. From small utilities to full product plugins.</p>
+        <h2><span class="icon">1</span> Consultancy</h2>
+        <p>Expert advice on web development, deployment workflows, and server tuning. Architecture, performance, and operations guidance.</p>
       </article>
 
       <article class="service">
-        <h2><span class="icon">2</span> Consultancy</h2>
-        <p>Expert advice on web development, deployment workflows, and server tuning. Architecture, performance, and operations guidance.</p>
+        <h2><span class="icon">2</span> WordPress plugin development</h2>
+        <p>Custom WordPress plugins built to your requirements: features, integrations, and maintenance. From small utilities to full product plugins.</p>
       </article>
 
       <article class="service">
@@ -202,5 +317,51 @@
       <a href="#">Terms of Service</a> · <a href="#">Privacy Policy</a> · © 2026 Wanzul Hosting Enterprise
     </footer>
   </div>
+  <script>
+    (function() {
+      var STORAGE_KEY = 'wanzul-theme';
+      var html = document.documentElement;
+
+      function getSystemTheme() {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      function applyTheme(choice) {
+        if (choice === 'system') {
+          html.removeAttribute('data-theme');
+        } else {
+          html.setAttribute('data-theme', choice);
+        }
+        var buttons = document.querySelectorAll('.theme-switcher button[data-theme]');
+        buttons.forEach(function(btn) {
+          var isActive = btn.getAttribute('data-theme') === choice;
+          btn.setAttribute('aria-pressed', isActive);
+        });
+      }
+
+      function setTheme(choice) {
+        try { localStorage.setItem(STORAGE_KEY, choice); } catch (e) {}
+        applyTheme(choice);
+      }
+
+      var saved = null;
+      try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+      var initial = (saved === 'light' || saved === 'dark' || saved === 'system') ? saved : 'system';
+      applyTheme(initial);
+
+      document.querySelectorAll('.theme-switcher button[data-theme]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          setTheme(btn.getAttribute('data-theme'));
+        });
+      });
+
+      if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
+          var current = html.getAttribute('data-theme');
+          if (current === null || current === 'system') applyTheme('system');
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
