@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Wanzul Hosting Enterprise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --bg-warm: #faf9f7;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0ea5e9;
+      --accent-hover: #0284c7;
+    }
+    [data-theme="dark"] {
+      --bg: #0f1620;
+      --bg-warm: #0d1117;
+      --surface: #161f2b;
+      --border: #2d3a4a;
+      --text: #e8eef4;
+      --text-muted: #8b99a8;
+      --accent: #58a6ff;
+      --accent-hover: #79b8ff;
+    }
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --bg-warm: #faf9f7;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0ea5e9;
+      --accent-hover: #0284c7;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0f1620;
+        --bg-warm: #0d1117;
+        --surface: #161f2b;
+        --border: #2d3a4a;
+        --text: #e8eef4;
+        --text-muted: #8b99a8;
+        --accent: #58a6ff;
+        --accent-hover: #79b8ff;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: linear-gradient(180deg, var(--bg-warm) 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    .container { max-width: 680px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+    .page-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; }
+    .logo a { color: var(--text); text-decoration: none; }
+    .logo a:hover { color: var(--accent); }
+    .theme-switcher { display: flex; align-items: center; gap: 0.25rem; margin-left: auto; }
+    .theme-switcher span { font-size: 0.75rem; color: var(--text-muted); margin-right: 0.5rem; }
+    .theme-switcher button {
+      font-family: inherit; font-size: 0.8125rem; padding: 0.35rem 0.65rem;
+      border: 1px solid var(--border); background: var(--surface); color: var(--text-muted);
+      border-radius: 8px; cursor: pointer; transition: color 0.15s, border-color 0.15s, background 0.15s;
+    }
+    .theme-switcher button:hover { color: var(--text); }
+    .theme-switcher button[aria-pressed="true"] {
+      background: rgba(14, 165, 233, 0.1); color: var(--accent); border-color: var(--accent); font-weight: 500;
+    }
+    [data-theme="dark"] .theme-switcher button[aria-pressed="true"] {
+      background: rgba(88, 166, 255, 0.15);
+    }
+    .page-content { margin-top: 2rem; }
+    .page-content h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; }
+    .page-content h2 { font-size: 1.15rem; font-weight: 600; margin: 1.75rem 0 0.75rem; }
+    .page-content p { margin-bottom: 1rem; color: var(--text); }
+    .page-content ul { margin: 0 0 1rem 1.5rem; }
+    .page-content li { margin-bottom: 0.35rem; }
+    .page-content a { color: var(--accent); text-decoration: none; }
+    .page-content a:hover { text-decoration: underline; }
+    .company-block {
+      margin-top: 3rem; padding: 2rem; border-top: 1px solid var(--border);
+      background: var(--surface); border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    [data-theme="dark"] .company-block { box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+    .legal-name { font-size: 0.8125rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 0.75rem; }
+    .legal-name .ssm { color: var(--text); }
+    .address { font-size: 0.9375rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 0.5rem; }
+    .office-line { font-size: 0.9375rem; color: var(--text-muted); }
+    .office-line a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .office-line a:hover { text-decoration: underline; }
+    .site-footer {
+      margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+      font-size: 0.8125rem; color: var(--text-muted);
+    }
+    .site-footer a { color: var(--text-muted); text-decoration: none; }
+    .site-footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <div class="logo"><a href="index.html">Wanzul Hosting Enterprise</a></div>
+      <div class="theme-switcher" role="group" aria-label="Theme">
+        <span>Theme</span>
+        <button type="button" data-theme="light" aria-pressed="false" title="Light" aria-label="Light">☀</button>
+        <button type="button" data-theme="system" aria-pressed="false" title="System" aria-label="System">◐</button>
+        <button type="button" data-theme="dark" aria-pressed="false" title="Dark" aria-label="Dark">☽</button>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <h1>Terms of Service</h1>
+      <p>Last updated: February 2026</p>
+
+      <p>These Terms of Service (“Terms”) govern your use of the website wanzul-hosting.com and any services provided by Wanzul Hosting Enterprise (“we”, “us”, “our”). By accessing this website or engaging our services, you agree to these Terms.</p>
+
+      <h2>1. Services</h2>
+      <p>We provide consultancy, web development, WordPress plugin development, WordPress deployment with High Availability (HA), email newsletter setup, and related technical services. The scope, deliverables, and fees for any project will be agreed separately (e.g. by email or contract).</p>
+
+      <h2>2. Use of the website</h2>
+      <p>You may use this website for lawful purposes only. You must not use it to transmit harmful code, attempt unauthorised access to our or third-party systems, or use it in any way that could damage or impair the site or our reputation.</p>
+
+      <h2>3. Intellectual property</h2>
+      <p>Content on this website (text, layout, logos) is owned by Wanzul Hosting Enterprise unless otherwise stated. Work we produce for you (code, designs, configurations) will be governed by the agreement for that project; unless otherwise agreed in writing, we retain the right to use general skills and non-confidential knowledge, and you receive the deliverables as agreed for your use.</p>
+
+      <h2>4. Limitation of liability</h2>
+      <p>To the fullest extent permitted by law, we are not liable for any indirect, incidental, or consequential loss arising from your use of this website or our services. Our total liability for any claim relating to our services is limited to the amount you paid us for the relevant service in the twelve (12) months before the claim arose.</p>
+
+      <h2>5. Confidentiality and data</h2>
+      <p>We will treat your confidential information with care and use it only as needed to perform the agreed services. How we collect and use personal data is set out in our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+
+      <h2>6. Termination and changes</h2>
+      <p>We may change these Terms at any time by updating this page. Continued use of the website or our services after changes constitutes acceptance of the revised Terms. We may suspend or stop providing access to the website or a service where we consider it necessary.</p>
+
+      <h2>7. Governing law</h2>
+      <p>These Terms are governed by the laws of Malaysia. Any dispute shall be subject to the exclusive jurisdiction of the courts of Malaysia.</p>
+
+      <h2>8. Contact</h2>
+      <p>For questions about these Terms, contact us at <a href="mailto:admin@wanzul-hosting.com">admin@wanzul-hosting.com</a> or <a href="tel:+60145356443">(+60)14 535 6443</a>.</p>
+    </main>
+
+    <section class="company-block">
+      <div class="legal-name">WANZUL HOSTING ENTERPRISE (<span class="ssm">201403298654 (PC0012291-H)</span>)</div>
+      <div class="address">B-05-15 PANGSAPURI EMBUN BAYU, PERSIARAN KOSMOS, SEKSYEN U5, 40150, SHAH ALAM, SELANGOR DARUL EHSAN</div>
+      <div class="office-line">Office line: <a href="tel:+60145356443">(+60)14 535 6443</a> · <a href="mailto:admin@wanzul-hosting.com">admin@wanzul-hosting.com</a></div>
+    </section>
+
+    <footer class="site-footer">
+      <a href="terms-of-service.html">Terms of Service</a> · <a href="privacy-policy.html">Privacy Policy</a> · <a href="index.html">Home</a> · © 2026 Wanzul Hosting Enterprise
+    </footer>
+  </div>
+  <script>
+    (function() {
+      var STORAGE_KEY = 'wanzul-theme';
+      var html = document.documentElement;
+      function applyTheme(choice) {
+        if (choice === 'system') html.removeAttribute('data-theme');
+        else html.setAttribute('data-theme', choice);
+        document.querySelectorAll('.theme-switcher button[data-theme]').forEach(function(btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-theme') === choice);
+        });
+      }
+      try {
+        var saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === 'light' || saved === 'dark' || saved === 'system') applyTheme(saved);
+        else applyTheme('system');
+      } catch (e) { applyTheme('system'); }
+      document.querySelectorAll('.theme-switcher button[data-theme]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var choice = btn.getAttribute('data-theme');
+          try { localStorage.setItem(STORAGE_KEY, choice); } catch (e) {}
+          applyTheme(choice);
+        });
+      });
+      if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
+          if (html.getAttribute('data-theme') === null || html.getAttribute('data-theme') === 'system') applyTheme('system');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
