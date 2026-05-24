@@ -42,6 +42,15 @@ The `Dockerfile` in this repo copies all files into an nginx image and serves th
 
 ---
 
+## Deploying to Dokploy
+
+1. In Dokploy, create a new deployment.
+2. Select **Static** as the deployment type.
+3. Point your domain to port **80**.
+4. Deploy.
+
+---
+
 ## Auto-deploy on push
 
 - **GitHub App**: Coolify can deploy on every push to the branch you configured.

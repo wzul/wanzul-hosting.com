@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator | Modern Birth Year Tool</title>
+    <meta name="description" content="Calculate your age instantly with this modern and sleek age calculator. Simple, fast, and visually beautiful.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-color: #ff007f;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-color: #ffffff;
+            --secondary-text: #d1d5db;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0f172a; /* Deep Navy Dark Mode */
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated Background Blobs */
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--primary-gradient);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.4;
+            animation: move 20s infinite alternate;
+        }
+
+        .blob-2 {
+            background: linear-gradient(135deg, #ff007f 0%, #764ba2 100%);
+            width: 400px;
+            height: 400px;
+            right: -100px;
+            top: -100px;
+            animation-delay: -5s;
+        }
+
+        @keyframes move {
+            from { transform: translate(-10%, -10%) scale(1); }
+            to { transform: translate(10%, 10%) scale(1.1); }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+            perspective: 1000px;
+        }
+
+        .calculator-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #fff, #a5b4fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            color: var(--secondary-text);
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .input-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            color: var(--secondary-text);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            padding-left: 5px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 15px 20px;
+            font-size: 1.25rem;
+            color: white;
+            outline: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        input[type="number"]:focus {
+            border-color: #818cf8;
+            box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hide Arrow Spinners */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .btn-calculate {
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            border: none;
+            background: var(--primary-gradient);
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            margin-top: 1rem;
+        }
+
+        .btn-calculate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            filter: brightness(1.1);
+        }
+
+        .btn-calculate:active {
+            transform: translateY(0);
+        }
+
+        .result-container {
+            margin-top: 2.5rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+        }
+
+        .result-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .result-label {
+            color: var(--secondary-text);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 5px;
+        }
+
+        .result-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(to bottom, #fff, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .result-unit {
+            font-size: 1.5rem;
+            color: var(--secondary-text);
+            font-weight: 400;
+        }
+
+        .error-message {
+            color: #f87171;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 480px) {
+            .calculator-card {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .result-value {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="blob"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="container">
+        <main class="calculator-card">
+            <h1>Age Explorer</h1>
+            <p class="subtitle">Enter your birth year to begin.</p>
+            
+            <div class="input-group">
+                <label for="birth-year">Year of Birth</label>
+                <input type="number" id="birth-year" placeholder="e.g., 1995" min="1900" max="2100">
+                <div id="error" class="error-message">Please enter a valid year.</div>
+            </div>
+
+            <button id="calculate-btn" class="btn-calculate">Calculate Now</button>
+
+            <div id="result-container" class="result-container">
+                <div class="result-label">Your Age</div>
+                <div class="result-value"><span id="age-display">0</span> <span class="result-unit">years</span></div>
+            </div>
+
+            <footer>Design by Antigravity</footer>
+        </main>
+    </div>
+
+    <script>
+        const birthYearInput = document.getElementById('birth-year');
+        const calculateBtn = document.getElementById('calculate-btn');
+        const ageDisplay = document.getElementById('age-display');
+        const resultContainer = document.getElementById('result-container');
+        const errorMsg = document.getElementById('error');
+
+        // Set Max Year to Current Year
+        const currentYear = new Date().getFullYear();
+        birthYearInput.max = currentYear;
+        birthYearInput.placeholder = `e.g., ${currentYear - 25}`;
+
+        function calculateAge() {
+            const birthYear = parseInt(birthYearInput.value);
+            
+            if (isNaN(birthYear) || birthYear < 1900 || birthYear > currentYear) {
+                showError();
+                return;
+            }
+
+            hideError();
+            const age = currentYear - birthYear;
+            
+            // Animate number
+            animateNumber(age);
+            
+            resultContainer.classList.add('show');
+        }
+
+        function animateNumber(target) {
+            let start = 0;
+            const duration = 1000;
+            const stepTime = Math.abs(Math.floor(duration / target));
+            
+            const timer = setInterval(() => {
+                start++;
+                ageDisplay.textContent = start;
+                if (start >= target) {
+                    clearInterval(timer);
+                    ageDisplay.textContent = target; // Ensure exact number
+                }
+            }, stepTime);
+        }
+
+        function showError() {
+            errorMsg.style.display = 'block';
+            resultContainer.classList.remove('show');
+            birthYearInput.style.borderColor = '#f87171';
+        }
+
+        function hideError() {
+            errorMsg.style.display = 'none';
+            birthYearInput.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+        }
+
+        calculateBtn.addEventListener('click', calculateAge);
+
+        // Allow 'Enter' key to trigger calculation
+        birthYearInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                calculateAge();
+            }
+        });
+
+        // Focus logic
+        birthYearInput.addEventListener('focus', () => {
+            if (errorMsg.style.display === 'block') {
+                hideError();
+            }
+        });
+    </script>
+</body>
+</html>
