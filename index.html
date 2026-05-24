@@ -3,116 +3,180 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wanzul Hosting Enterprise — WordPress, Web & Email Services</title>
+  <title>Wanzul Hosting Enterprise — WordPress, Web &amp; Email Services</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /* Light theme (default) */
+    /* ─── Design Tokens ─── */
     :root {
-      --bg: #f8fafc;
-      --bg-warm: #faf9f7;
-      --surface: #ffffff;
-      --border: #e2e8f0;
-      --border-soft: #f1f5f9;
-      --text: #1e293b;
-      --text-muted: #64748b;
-      --accent: #0ea5e9;
-      --accent-hover: #0284c7;
-      --accent-soft: rgba(14, 165, 233, 0.1);
-      --shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-      --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --bg: #07120f;
+      --bg-elevated: #0e1a16;
+      --surface: #142821;
+      --surface-glass: rgba(20, 40, 33, 0.7);
+      --border: #1e3d30;
+      --border-soft: #163324;
+      --text: #e8f0ec;
+      --text-muted: #6b9685;
+      --text-dim: #3d6b57;
+      --accent: #e8a652;
+      --accent-hover: #f2be7a;
+      --accent-soft: rgba(232, 166, 82, 0.12);
+      --accent-glow: rgba(232, 166, 82, 0.25);
+      --shadow: 0 1px 2px rgba(0,0,0,0.4);
+      --shadow-hover: 0 8px 32px rgba(0,0,0,0.5);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    /* Dark theme */
-    [data-theme="dark"] {
-      --bg: #0f1620;
-      --bg-warm: #0d1117;
-      --surface: #161f2b;
-      --border: #2d3a4a;
-      --border-soft: #21262d;
-      --text: #e8eef4;
-      --text-muted: #8b99a8;
-      --accent: #58a6ff;
-      --accent-hover: #79b8ff;
-      --accent-soft: rgba(88, 166, 255, 0.15);
-      --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-      --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.4);
-    }
-
-    /* Force light when user chose light (overrides system dark) */
     [data-theme="light"] {
-      --bg: #f8fafc;
-      --bg-warm: #faf9f7;
+      --bg: #f4f7f5;
+      --bg-elevated: #eef2ef;
       --surface: #ffffff;
-      --border: #e2e8f0;
-      --border-soft: #f1f5f9;
-      --text: #1e293b;
-      --text-muted: #64748b;
-      --accent: #0ea5e9;
-      --accent-hover: #0284c7;
-      --accent-soft: rgba(14, 165, 233, 0.1);
-      --shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-      --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --surface-glass: rgba(255,255,255,0.72);
+      --border: #c8ddd2;
+      --border-soft: #e0ece4;
+      --text: #0f1f17;
+      --text-muted: #4e7a66;
+      --text-dim: #8dbba5;
+      --accent: #b87a2a;
+      --accent-hover: #945f1c;
+      --accent-soft: rgba(184, 122, 42, 0.1);
+      --accent-glow: rgba(184, 122, 42, 0.18);
+      --shadow: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-hover: 0 8px 24px rgba(0,0,0,0.1);
     }
 
-    /* System preference: dark when OS is dark (unless user chose light) */
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg: #0f1620;
-        --bg-warm: #0d1117;
-        --surface: #161f2b;
-        --border: #2d3a4a;
-        --border-soft: #21262d;
-        --text: #e8eef4;
-        --text-muted: #8b99a8;
-        --accent: #58a6ff;
-        --accent-hover: #79b8ff;
-        --accent-soft: rgba(88, 166, 255, 0.15);
-        --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-        --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.4);
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --bg: #f4f7f5;
+        --bg-elevated: #eef2ef;
+        --surface: #ffffff;
+        --surface-glass: rgba(255,255,255,0.72);
+        --border: #c8ddd2;
+        --border-soft: #e0ece4;
+        --text: #0f1f17;
+        --text-muted: #4e7a66;
+        --text-dim: #8dbba5;
+        --accent: #b87a2a;
+        --accent-hover: #945f1c;
+        --accent-soft: rgba(184, 122, 42, 0.1);
+        --accent-glow: rgba(184, 122, 42, 0.18);
+        --shadow: 0 1px 3px rgba(0,0,0,0.06);
+        --shadow-hover: 0 8px 24px rgba(0,0,0,0.1);
       }
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(180deg, var(--bg-warm) 0%, var(--bg) 100%);
+      font-family: 'Manrope', -apple-system, sans-serif;
+      background: var(--bg);
       color: var(--text);
       line-height: 1.65;
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
+    /* ─── Noise texture overlay ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 200px 200px;
+    }
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
+
+    /* ─── Selection ─── */
+    ::selection { background: var(--accent-soft); color: var(--accent); }
+
+    /* ─── Layout ─── */
     .container {
-      max-width: 1200px;
+      max-width: 1160px;
       margin: 0 auto;
-      padding: 2.5rem 2rem 4rem;
+      padding: 0 1.5rem;
     }
 
+    /* ─── Animations ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+      50%      { box-shadow: 0 0 20px 4px var(--accent-glow); }
+    }
+    @keyframes hero-gradient {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+
+    .anim-fade-up {
+      opacity: 0;
+      animation: fadeUp 0.7s var(--transition) forwards;
+    }
+    .anim-delay-1 { animation-delay: 0.1s; }
+    .anim-delay-2 { animation-delay: 0.2s; }
+    .anim-delay-3 { animation-delay: 0.3s; }
+    .anim-delay-4 { animation-delay: 0.4s; }
+    .anim-delay-5 { animation-delay: 0.5s; }
+    .anim-delay-6 { animation-delay: 0.6s; }
+
+    /* ─── Header ─── */
     .page-header {
-      margin-bottom: 2.5rem;
-      padding-bottom: 1.75rem;
+      padding: 1.75rem 0;
       border-bottom: 1px solid var(--border);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      position: relative;
+    }
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 80px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.6;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      font-size: 1.625rem;
+      gap: 0.875rem;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.375rem;
       font-weight: 700;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
       color: var(--text);
     }
     .logo a {
@@ -120,38 +184,460 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.875rem;
+      transition: color var(--transition);
     }
-    .logo a:hover {
-      color: var(--accent);
-    }
+    .logo a:hover { color: var(--accent); }
     .logo img {
-      height: 40px;
+      height: 36px;
       width: auto;
       display: block;
       object-fit: contain;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
     }
 
+    .theme-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 100px;
+      padding: 0.25rem;
+    }
+    .theme-switcher button {
+      font-family: inherit;
+      font-size: 0.875rem;
+      width: 34px;
+      height: 34px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .theme-switcher button:hover {
+      color: var(--text);
+      background: var(--bg-elevated);
+    }
+    .theme-switcher button[aria-pressed="true"] {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: 4rem 0 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      opacity: 0.5;
+      pointer-events: none;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      max-width: 680px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero-desc {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--text-dim);
+    }
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .hero-meta .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+
+    /* ─── Section headers ─── */
+    .section-header {
+      margin-bottom: 2rem;
+    }
+    .section-header h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-header h2::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--accent);
+      transform: rotate(45deg);
+    }
+    .section-header p {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      max-width: 480px;
+    }
+
+    /* ─── About ─── */
+    .about-section {
+      padding: 2rem 0 3rem;
+    }
+    .about-section p {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      max-width: 640px;
+    }
+    .about-section p:last-child { margin-bottom: 0; }
+    .about-section a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+    }
+    .about-section a::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform var(--transition);
+    }
+    .about-section a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* ─── Services ─── */
+    .services-section {
+      padding: 2rem 0;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .service {
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      transition: all var(--transition);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .service::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .service:hover {
+      border-color: var(--border);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+    .service:hover::before { opacity: 0.5; }
+    .service .icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 1.25rem;
+      transition: all var(--transition);
+    }
+    .service:hover .icon {
+      background: var(--accent);
+      color: var(--bg);
+      transform: scale(1.05);
+    }
+    .service h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    .service p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    /* ─── Tech Stack ─── */
+    .tech-stack {
+      padding: 3rem 0;
+    }
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.625rem;
+    }
+    .tech-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.9rem;
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 100px;
+      font-size: 0.8125rem;
+      color: var(--text);
+      box-shadow: var(--shadow);
+      transition: all var(--transition);
+      cursor: default;
+    }
+    .tech-item:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+      transform: translateY(-2px);
+    }
+    .tech-item img {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .tech-item .tech-text { font-weight: 500; }
+    .tech-item .tech-initial {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.65rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ─── Clients ─── */
+    .clients-section {
+      padding: 2rem 0 3rem;
+    }
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .client-card {
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all var(--transition);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .client-card:hover {
+      border-color: var(--border);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+    .client-card a.card-link {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .client-preview {
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-elevated);
+    }
+    .client-preview img.preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s var(--transition);
+    }
+    .client-card:hover .client-preview img.preview-img {
+      transform: scale(1.06);
+    }
+    .client-card .card-body {
+      padding: 1.1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .client-card .domain-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .client-card .favicon {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .client-card .domain {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text);
+      word-break: break-word;
+    }
+    .client-card .badge {
+      font-size: 0.625rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.45rem;
+      border-radius: 100px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .client-card .visit {
+      font-size: 0.8125rem;
+      color: var(--accent);
+      margin-top: 0.35rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: gap 0.2s ease;
+    }
+    .client-card a.card-link:hover .visit {
+      gap: 0.5rem;
+    }
+
+    /* ─── Divider ─── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0;
+      border: none;
+    }
+
+    /* ─── Footer region ─── */
     .footer-region {
-      margin-top: 3.5rem;
+      margin: 3rem 0 2rem;
       padding: 2.5rem 2rem 2rem;
       background: var(--surface);
       border: 1px solid var(--border-soft);
-      border-radius: 16px;
+      border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .footer-region::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent, var(--accent));
+      opacity: 0.4;
     }
 
     .company-block {
       padding-bottom: 1.5rem;
     }
-
     .footer-divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--border), transparent);
       margin: 0 0 1.5rem;
       border: none;
     }
-
     .legal-name {
       font-size: 0.8125rem;
       color: var(--text-muted);
@@ -159,126 +645,38 @@
       margin-bottom: 0.75rem;
       letter-spacing: 0.01em;
     }
-
-    .legal-name .ssm {
-      color: var(--text);
-    }
-
+    .legal-name .ssm { color: var(--text); }
     .address {
       font-size: 0.9375rem;
       color: var(--text-muted);
       line-height: 1.7;
       margin-bottom: 0.5rem;
     }
-
-
     .office-line {
       font-size: 0.9375rem;
       color: var(--text-muted);
     }
-
     .office-line a {
       color: var(--accent);
       text-decoration: none;
       font-weight: 500;
+      position: relative;
     }
-
-    .office-line a:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
+    .office-line a::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform var(--transition);
     }
-
-    .about-section {
-      margin-bottom: 3rem;
-    }
-
-    .about-section h2 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 1.25rem;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    .about-section p {
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-
-    .about-section p:last-child {
-      margin-bottom: 0;
-    }
-
-    .about-section a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .about-section a:hover {
-      text-decoration: underline;
-    }
-
-    h1 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    .services {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .service {
-      background: var(--surface);
-      border: 1px solid var(--border-soft);
-      border-radius: 14px;
-      padding: 1.5rem 1.75rem;
-      transition: box-shadow 0.2s ease, border-color 0.2s ease;
-      box-shadow: var(--shadow);
-    }
-
-    .service:hover {
-      border-color: var(--border);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .service h2 {
-      font-size: 1.0625rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.625rem;
-      color: var(--text);
-    }
-
-    .service .icon {
-      width: 28px;
-      height: 28px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      border-radius: 8px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      font-family: 'JetBrains Mono', monospace;
-      flex-shrink: 0;
-    }
-
-    .service p {
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      margin: 0;
-      line-height: 1.6;
+    .office-line a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
     }
 
     .site-footer {
@@ -288,238 +686,25 @@
       color: var(--text-muted);
       text-align: center;
     }
-
     .site-footer a {
       color: var(--text-muted);
       text-decoration: none;
+      transition: color var(--transition);
     }
+    .site-footer a:hover { color: var(--accent); }
 
-    .site-footer a:hover {
-      color: var(--accent);
-    }
-
-    .tech-stack {
-      margin-top: 3rem;
-    }
-
-    .tech-stack h2 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 1.25rem;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    .tech-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .tech-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 0.85rem;
-      background: var(--surface);
-      border: 1px solid var(--border-soft);
-      border-radius: 10px;
-      font-size: 0.875rem;
-      color: var(--text);
-      box-shadow: var(--shadow);
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .tech-item:hover {
-      border-color: var(--border);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .tech-item img {
-      width: 22px;
-      height: 22px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-
-    .tech-item .tech-text {
-      font-weight: 500;
-    }
-
-    .tech-item .tech-initial {
-      width: 22px;
-      height: 22px;
-      border-radius: 5px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .theme-switcher {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      margin-left: auto;
-    }
-
-    .theme-switcher span {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-right: 0.5rem;
-    }
-
-    .theme-switcher button {
-      font-family: inherit;
-      font-size: 0.8125rem;
-      padding: 0.35rem 0.65rem;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text-muted);
-      border-radius: 8px;
-      cursor: pointer;
-      transition: color 0.15s, border-color 0.15s, background 0.15s;
-    }
-
-    .theme-switcher button:hover {
-      color: var(--text);
-      border-color: var(--border);
-    }
-
-    .theme-switcher button[aria-pressed="true"] {
-      background: var(--accent-soft);
-      color: var(--accent);
-      border-color: var(--accent);
-      font-weight: 500;
-    }
-
-    .clients-section {
-      margin-top: 3rem;
-    }
-
-    .clients-section h2 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 1.25rem;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    .client-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-
-    .client-card {
-      background: var(--surface);
-      border: 1px solid var(--border-soft);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: box-shadow 0.2s ease, border-color 0.2s ease;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .client-card:hover {
-      border-color: var(--border);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .client-card a.card-link {
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .client-preview {
-      height: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .client-preview img.preview-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .client-preview .preview-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      font-weight: 700;
-      color: rgba(255,255,255,0.5);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .client-card .card-body {
-      padding: 1rem 1.1rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .client-card .domain-row {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .client-card .favicon {
-      width: 20px;
-      height: 20px;
-      border-radius: 4px;
-      flex-shrink: 0;
-    }
-
-    .client-card .domain {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: var(--text);
-      word-break: break-word;
-    }
-
-    .client-card .badge {
-      font-size: 0.6875rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      padding: 0.2rem 0.45rem;
-      border-radius: 6px;
-      background: var(--accent-soft);
-      color: var(--accent);
-    }
-
-    .client-card .visit {
-      font-size: 0.8125rem;
-      color: var(--accent);
-      margin-top: 0.25rem;
-    }
-
-    .client-card a.card-link:hover .visit {
-      text-decoration: underline;
+    /* ─── Responsive ─── */
+    @media (max-width: 640px) {
+      .hero { padding: 2.5rem 0 2rem; }
+      .services { grid-template-columns: 1fr; }
+      .client-grid { grid-template-columns: 1fr; }
+      .footer-region { padding: 1.75rem 1.25rem 1.5rem; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header class="page-header">
+    <header class="page-header anim-fade-up">
       <div class="logo">
         <a href="index.html">
           <img src="images/logo.png" alt="Wanzul Hosting Enterprise">
@@ -527,186 +712,221 @@
         </a>
       </div>
       <div class="theme-switcher" role="group" aria-label="Theme">
-        <span>Theme</span>
-        <button type="button" data-theme="light" aria-pressed="false" title="Light" aria-label="Light">☀</button>
-        <button type="button" data-theme="system" aria-pressed="false" title="System" aria-label="System">◐</button>
-        <button type="button" data-theme="dark" aria-pressed="false" title="Dark" aria-label="Dark">☽</button>
+        <button type="button" data-theme="light" aria-pressed="false" title="Light" aria-label="Light">&#x2600;</button>
+        <button type="button" data-theme="system" aria-pressed="false" title="System" aria-label="System">&#x25D0;</button>
+        <button type="button" data-theme="dark" aria-pressed="false" title="Dark" aria-label="Dark">&#x263D;</button>
       </div>
     </header>
 
-    <section class="about-section" aria-labelledby="about-heading">
-      <h2 id="about-heading">About Wanzul Hosting</h2>
+    <section class="hero anim-fade-up anim-delay-1">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Est. 2014 &mdash; Shah Alam, Malaysia</div>
+        <h1>WordPress, Web <em>&amp;</em> Email Services</h1>
+        <p class="hero-desc">Consultancy, custom plugin development, high-availability deployment, and newsletter infrastructure — built by a team that's been in the business since 2014.</p>
+        <div class="hero-meta">
+          <span><span class="dot"></span> Accepting new projects</span>
+          <span>SSM 201403298654</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="about-section anim-fade-up anim-delay-2" aria-labelledby="about-heading">
+      <div class="section-header">
+        <h2 id="about-heading">About</h2>
+      </div>
       <p>Wanzul Hosting started on 29 March 2014 to provide web hosting services. We began by subscribing to a reseller hosting service and reselling it with cheaper packages, and also sold domain names.</p>
       <p>In 2018 we decided to stop taking new web hosting account registrations so we could focus on development. To this day, we have a wide array of expertise across various technology stacks.</p>
       <p>We are currently building <a href="https://jomform.com" target="_blank" rel="noopener noreferrer">jomform.com</a>, a platform where people can create forms and receive payments easily.</p>
     </section>
 
-    <h1>Services</h1>
+    <hr class="section-divider">
 
-    <section class="services">
-      <article class="service">
-        <h2><span class="icon">1</span> Consultancy</h2>
-        <p>Expert advice on web development, deployment workflows, and server tuning. Architecture, performance, and operations guidance. Experience in WordPress, Laravel and Ruby on Rails.</p>
-      </article>
+    <section class="services-section anim-fade-up anim-delay-3" aria-labelledby="services-heading">
+      <div class="section-header">
+        <h2 id="services-heading">Services</h2>
+        <p>What we do — from architecture to deployment.</p>
+      </div>
+      <div class="services">
+        <article class="service anim-fade-up anim-delay-3">
+          <div class="icon">01</div>
+          <h3>Consultancy</h3>
+          <p>Expert advice on web development, deployment workflows, and server tuning. Architecture, performance, and operations guidance. Experience in WordPress, Laravel and Ruby on Rails.</p>
+        </article>
 
-      <article class="service">
-        <h2><span class="icon">2</span> WordPress plugin development</h2>
-        <p>Custom WordPress plugins built to your requirements: features, integrations, and maintenance. From small utilities to full product plugins.</p>
-      </article>
+        <article class="service anim-fade-up anim-delay-4">
+          <div class="icon">02</div>
+          <h3>WordPress plugin development</h3>
+          <p>Custom WordPress plugins built to your requirements: features, integrations, and maintenance. From small utilities to full product plugins.</p>
+        </article>
 
-      <article class="service">
-        <h2><span class="icon">3</span> WordPress deployment with High Availability (HA)</h2>
-        <p>WordPress hosting and deployment designed for uptime and scale: redundant setups, staging, backups, and monitoring.</p>
-      </article>
+        <article class="service anim-fade-up anim-delay-5">
+          <div class="icon">03</div>
+          <h3>WordPress deployment with HA</h3>
+          <p>WordPress hosting and deployment designed for uptime and scale: redundant setups, staging, backups, and monitoring.</p>
+        </article>
 
-      <article class="service">
-        <h2><span class="icon">4</span> Email newsletter</h2>
-        <p>Full setup and configuration for your email newsletters: installation, list management, templates, and delivery.</p>
-      </article>
-    </section>
-
-    <section class="tech-stack" aria-labelledby="tech-heading">
-      <h2 id="tech-heading">Technology stack</h2>
-      <div class="tech-grid">
-        <span class="tech-item"><img src="images/tech/wordpress.svg" alt="" width="22" height="22"><span class="tech-text">WordPress</span></span>
-        <span class="tech-item"><img src="images/tech/laravel.svg" alt="" width="22" height="22"><span class="tech-text">Laravel</span></span>
-        <span class="tech-item"><img src="images/tech/rubyonrails.svg" alt="" width="22" height="22"><span class="tech-text">Ruby on Rails</span></span>
-        <span class="tech-item"><img src="images/tech/amazonaws.svg" alt="" width="22" height="22"><span class="tech-text">AWS EC2</span></span>
-        <span class="tech-item"><img src="images/tech/amazonaws.svg" alt="" width="22" height="22"><span class="tech-text">AWS RDS</span></span>
-        <span class="tech-item"><img src="images/tech/amazonaws.svg" alt="" width="22" height="22"><span class="tech-text">AWS Elastic Beanstalk</span></span>
-        <span class="tech-item"><img src="images/tech/heroku.svg" alt="" width="22" height="22"><span class="tech-text">Heroku</span></span>
-        <span class="tech-item"><span class="tech-initial">C</span><span class="tech-text">Coolify</span></span>
-        <span class="tech-item"><img src="images/tech/docker.svg" alt="" width="22" height="22"><span class="tech-text">Docker</span></span>
-        <span class="tech-item"><img src="images/tech/postgresql.svg" alt="" width="22" height="22"><span class="tech-text">PostgreSQL</span></span>
-        <span class="tech-item"><span class="tech-initial">P</span><span class="tech-text">PgBouncer</span></span>
-        <span class="tech-item"><img src="images/tech/mariadb.svg" alt="" width="22" height="22"><span class="tech-text">MariaDB</span></span>
-        <span class="tech-item"><span class="tech-initial">P</span><span class="tech-text">ProxySQL</span></span>
-        <span class="tech-item"><span class="tech-initial">C</span><span class="tech-text">ClickHouse</span></span>
-        <span class="tech-item"><span class="tech-initial">O</span><span class="tech-text">OpenCart</span></span>
-        <span class="tech-item"><img src="images/tech/woocommerce.svg" alt="" width="22" height="22"><span class="tech-text">WooCommerce</span></span>
+        <article class="service anim-fade-up anim-delay-6">
+          <div class="icon">04</div>
+          <h3>Email newsletter</h3>
+          <p>Full setup and configuration for your email newsletters: installation, list management, templates, and delivery.</p>
+        </article>
       </div>
     </section>
 
-    <section class="clients-section" aria-labelledby="clients-heading">
-      <h2 id="clients-heading">Clients</h2>
+    <hr class="section-divider">
+
+    <section class="tech-stack anim-fade-up" aria-labelledby="tech-heading">
+      <div class="section-header">
+        <h2 id="tech-heading">Technology stack</h2>
+        <p>Tools and platforms we work with daily.</p>
+      </div>
+      <div class="tech-grid">
+        <span class="tech-item"><img src="images/tech/wordpress.svg" alt="" width="18" height="18"><span class="tech-text">WordPress</span></span>
+        <span class="tech-item"><img src="images/tech/laravel.svg" alt="" width="18" height="18"><span class="tech-text">Laravel</span></span>
+        <span class="tech-item"><img src="images/tech/rubyonrails.svg" alt="" width="18" height="18"><span class="tech-text">Ruby on Rails</span></span>
+        <span class="tech-item"><img src="images/tech/amazonaws.svg" alt="" width="18" height="18"><span class="tech-text">AWS EC2</span></span>
+        <span class="tech-item"><img src="images/tech/amazonaws.svg" alt="" width="18" height="18"><span class="tech-text">AWS RDS</span></span>
+        <span class="tech-item"><img src="images/tech/amazonaws.svg" alt="" width="18" height="18"><span class="tech-text">AWS Elastic Beanstalk</span></span>
+        <span class="tech-item"><img src="images/tech/heroku.svg" alt="" width="18" height="18"><span class="tech-text">Heroku</span></span>
+        <span class="tech-item"><span class="tech-initial">C</span><span class="tech-text">Coolify</span></span>
+        <span class="tech-item"><img src="images/tech/docker.svg" alt="" width="18" height="18"><span class="tech-text">Docker</span></span>
+        <span class="tech-item"><img src="images/tech/postgresql.svg" alt="" width="18" height="18"><span class="tech-text">PostgreSQL</span></span>
+        <span class="tech-item"><span class="tech-initial">P</span><span class="tech-text">PgBouncer</span></span>
+        <span class="tech-item"><img src="images/tech/mariadb.svg" alt="" width="18" height="18"><span class="tech-text">MariaDB</span></span>
+        <span class="tech-item"><span class="tech-initial">P</span><span class="tech-text">ProxySQL</span></span>
+        <span class="tech-item"><span class="tech-initial">C</span><span class="tech-text">ClickHouse</span></span>
+        <span class="tech-item"><span class="tech-initial">O</span><span class="tech-text">OpenCart</span></span>
+        <span class="tech-item"><img src="images/tech/woocommerce.svg" alt="" width="18" height="18"><span class="tech-text">WooCommerce</span></span>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="clients-section anim-fade-up" aria-labelledby="clients-heading">
+      <div class="section-header">
+        <h2 id="clients-heading">Clients</h2>
+        <p>Sites and projects we've worked on.</p>
+      </div>
       <div class="client-grid">
-        <article class="client-card">
+        <article class="client-card anim-fade-up anim-delay-1">
           <a class="card-link" href="https://dentaluna.my" target="_blank" rel="noopener noreferrer">
             <div class="client-preview">
               <img class="preview-img" src="images/clients/dentaluna-my.png" alt="Dentaluna - Quality Meets Comfort" width="400" height="300" loading="lazy">
             </div>
             <div class="card-body">
               <div class="domain-row">
-                <img class="favicon" src="https://www.google.com/s2/favicons?domain=dentaluna.my&sz=32" alt="" width="20" height="20">
-                <span class="domain">Dentaluna - Quality Meets Comfort</span>
+                <img class="favicon" src="https://www.google.com/s2/favicons?domain=dentaluna.my&amp;sz=32" alt="" width="18" height="18">
+                <span class="domain">Dentaluna</span>
               </div>
-              <span class="visit">Visit site →</span>
+              <span class="visit">Visit site &rarr;</span>
             </div>
           </a>
         </article>
-        <article class="client-card">
+        <article class="client-card anim-fade-up anim-delay-2">
           <a class="card-link" href="https://safamedichululangat.com" target="_blank" rel="noopener noreferrer">
             <div class="client-preview">
               <img class="preview-img" src="images/clients/safamedichululangat.png" alt="Klinik Safamedic | Hulu Langat" width="400" height="300" loading="lazy">
             </div>
             <div class="card-body">
               <div class="domain-row">
-                <img class="favicon" src="https://www.google.com/s2/favicons?domain=safamedichululangat.com&sz=32" alt="" width="20" height="20">
-                <span class="domain">Klinik Safamedic | Hulu Langat</span>
+                <img class="favicon" src="https://www.google.com/s2/favicons?domain=safamedichululangat.com&amp;sz=32" alt="" width="18" height="18">
+                <span class="domain">Klinik Safamedic</span>
               </div>
-              <span class="visit">Visit site →</span>
+              <span class="visit">Visit site &rarr;</span>
             </div>
           </a>
         </article>
-        <article class="client-card">
+        <article class="client-card anim-fade-up anim-delay-3">
           <a class="card-link" href="https://takaful.abrar.my" target="_blank" rel="noopener noreferrer">
             <div class="client-preview">
               <img class="preview-img" src="images/clients/takaful-abrar-my.png" alt="Home - Lindung Sebelum Sakit" width="400" height="300" loading="lazy">
             </div>
             <div class="card-body">
               <div class="domain-row">
-                <img class="favicon" src="https://www.google.com/s2/favicons?domain=takaful.abrar.my&sz=32" alt="" width="20" height="20">
-                <span class="domain">Home - Lindung Sebelum Sakit</span>
+                <img class="favicon" src="https://www.google.com/s2/favicons?domain=takaful.abrar.my&amp;sz=32" alt="" width="18" height="18">
+                <span class="domain">Abrar Takaful</span>
               </div>
-              <span class="visit">Visit site →</span>
+              <span class="visit">Visit site &rarr;</span>
             </div>
           </a>
         </article>
-        <article class="client-card">
+        <article class="client-card anim-fade-up anim-delay-4">
           <a class="card-link" href="https://construction.org.my" target="_blank" rel="noopener noreferrer">
             <div class="client-preview">
               <img class="preview-img" src="images/clients/construction-org-my.png" alt="Construction" width="400" height="300" loading="lazy">
             </div>
             <div class="card-body">
               <div class="domain-row">
-                <img class="favicon" src="https://www.google.com/s2/favicons?domain=construction.org.my&sz=32" alt="" width="20" height="20">
-                <span class="domain">Construction</span>
+                <img class="favicon" src="https://www.google.com/s2/favicons?domain=construction.org.my&amp;sz=32" alt="" width="18" height="18">
+                <span class="domain">Construction.org.my</span>
               </div>
-              <span class="visit">Visit site →</span>
+              <span class="visit">Visit site &rarr;</span>
             </div>
           </a>
         </article>
-        <article class="client-card">
+        <article class="client-card anim-fade-up anim-delay-5">
           <a class="card-link" href="https://smai.islahbiz.com" target="_blank" rel="noopener noreferrer">
             <div class="client-preview">
               <img class="preview-img" src="images/clients/smai-islahbiz.png" alt="Islahbiz" width="400" height="300" loading="lazy">
             </div>
             <div class="card-body">
               <div class="domain-row">
-                <img class="favicon" src="https://www.google.com/s2/favicons?domain=smai.islahbiz.com&sz=32" alt="" width="20" height="20">
+                <img class="favicon" src="https://www.google.com/s2/favicons?domain=smai.islahbiz.com&amp;sz=32" alt="" width="18" height="18">
                 <span class="domain">Islahbiz</span>
               </div>
-              <span class="visit">Visit site →</span>
+              <span class="visit">Visit site &rarr;</span>
             </div>
           </a>
         </article>
-        <article class="client-card">
+        <article class="client-card anim-fade-up anim-delay-6">
           <a class="card-link" href="https://jomform.com" target="_blank" rel="noopener noreferrer">
             <div class="client-preview">
               <img class="preview-img" src="images/clients/jomform-com.png" alt="Something Is Brewing" width="400" height="300" loading="lazy">
             </div>
             <div class="card-body">
               <div class="domain-row">
-                <img class="favicon" src="https://www.google.com/s2/favicons?domain=jomform.com&sz=32" alt="" width="20" height="20">
+                <img class="favicon" src="https://www.google.com/s2/favicons?domain=jomform.com&amp;sz=32" alt="" width="18" height="18">
                 <span class="domain">JomForm</span>
-                <span class="badge">In development</span>
+                <span class="badge">In dev</span>
               </div>
-              <span class="visit">Visit site →</span>
+              <span class="visit">Visit site &rarr;</span>
             </div>
           </a>
         </article>
-        <article class="client-card">
+        <article class="client-card anim-fade-up anim-delay-1">
           <a class="card-link" href="https://wanzul.net" target="_blank" rel="noopener noreferrer">
             <div class="client-preview">
               <img class="preview-img" src="images/clients/wanzul-net.png" alt="Wanzul Blog" width="400" height="300" loading="lazy">
             </div>
             <div class="card-body">
               <div class="domain-row">
-                <img class="favicon" src="https://www.google.com/s2/favicons?domain=wanzul.net&sz=32" alt="" width="20" height="20">
+                <img class="favicon" src="https://www.google.com/s2/favicons?domain=wanzul.net&amp;sz=32" alt="" width="18" height="18">
                 <span class="domain">Wanzul Blog</span>
               </div>
-              <span class="visit">Visit site →</span>
+              <span class="visit">Visit site &rarr;</span>
             </div>
           </a>
         </article>
-        <article class="client-card">
+        <article class="client-card anim-fade-up anim-delay-2">
           <a class="card-link" href="https://liyanaamil.com" target="_blank" rel="noopener noreferrer">
             <div class="client-preview">
               <img class="preview-img" src="images/clients/liyanaamil-com.png" alt="L.A Anecdotes" width="400" height="300" loading="lazy">
             </div>
             <div class="card-body">
               <div class="domain-row">
-                <img class="favicon" src="https://www.google.com/s2/favicons?domain=liyanaamil.com&sz=32" alt="" width="20" height="20">
+                <img class="favicon" src="https://www.google.com/s2/favicons?domain=liyanaamil.com&amp;sz=32" alt="" width="18" height="18">
                 <span class="domain">L.A Anecdotes</span>
               </div>
-              <span class="visit">Visit site →</span>
+              <span class="visit">Visit site &rarr;</span>
             </div>
           </a>
         </article>
       </div>
     </section>
 
-    <div class="footer-region">
+    <div class="footer-region anim-fade-up">
       <section class="company-block">
         <div class="legal-name">WANZUL HOSTING ENTERPRISE (<span class="ssm">201403298654 (PC0012291-H)</span>)</div>
         <div class="address">Address: B-05-15 PANGSAPURI EMBUN BAYU, PERSIARAN KOSMOS, SEKSYEN U5, 40150, SHAH ALAM, SELANGOR DARUL EHSAN</div>
@@ -714,45 +934,36 @@
       </section>
       <hr class="footer-divider" aria-hidden="true">
       <footer class="site-footer">
-        <a href="terms-of-service.html">Terms of Service</a> · <a href="privacy-policy.html">Privacy Policy</a> · <a href="refund-policy.html">Refund Policy</a> · © 2026 Wanzul Hosting Enterprise
+        <a href="terms-of-service.html">Terms of Service</a> &middot; <a href="privacy-policy.html">Privacy Policy</a> &middot; <a href="refund-policy.html">Refund Policy</a> &middot; &copy; 2026 Wanzul Hosting Enterprise
       </footer>
     </div>
   </div>
+
   <script>
     (function() {
       var STORAGE_KEY = 'wanzul-theme';
       var html = document.documentElement;
 
-      function getSystemTheme() {
-        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      }
-
       function applyTheme(choice) {
-        if (choice === 'system') {
-          html.removeAttribute('data-theme');
-        } else {
-          html.setAttribute('data-theme', choice);
-        }
+        if (choice === 'system') html.removeAttribute('data-theme');
+        else html.setAttribute('data-theme', choice);
         var buttons = document.querySelectorAll('.theme-switcher button[data-theme]');
         buttons.forEach(function(btn) {
-          var isActive = btn.getAttribute('data-theme') === choice;
-          btn.setAttribute('aria-pressed', isActive);
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-theme') === choice);
         });
       }
 
-      function setTheme(choice) {
-        try { localStorage.setItem(STORAGE_KEY, choice); } catch (e) {}
-        applyTheme(choice);
-      }
-
-      var saved = null;
-      try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-      var initial = (saved === 'light' || saved === 'dark' || saved === 'system') ? saved : 'system';
-      applyTheme(initial);
+      try {
+        var saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === 'light' || saved === 'dark' || saved === 'system') applyTheme(saved);
+        else applyTheme('system');
+      } catch (e) { applyTheme('system'); }
 
       document.querySelectorAll('.theme-switcher button[data-theme]').forEach(function(btn) {
         btn.addEventListener('click', function() {
-          setTheme(btn.getAttribute('data-theme'));
+          var choice = btn.getAttribute('data-theme');
+          try { localStorage.setItem(STORAGE_KEY, choice); } catch (e) {}
+          applyTheme(choice);
         });
       });
 
